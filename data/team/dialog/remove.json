@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {"text": "Quitar jugador", "color": "yellow", "bold": true},
+  "body": {"type": "minecraft:plain_message", "contents": {"text": "El jugador perderá su título/team.", "color": "gray"}},
+  "pause": false,
+  "inputs": [
+    {"type": "minecraft:text", "key": "player", "label": "Nick del jugador", "max_length": 16, "width": 220}
+  ],
+  "yes": {"label": {"text": "Quitar", "color": "yellow"}, "action": {"type": "dynamic/run_command", "template": "function team:cmd/remove {player:\"$(player)\"}"}},
+  "no": {"label": "Volver", "action": {"type": "show_dialog", "dialog": "team:menu"}}
+}
