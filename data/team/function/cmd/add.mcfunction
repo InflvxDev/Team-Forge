@@ -1,5 +1,8 @@
-# Uso: /function team:cmd/add {player:"Steve",team:"Rojos"}
-data modify storage team:tmp ok set value 0b
-$execute store success storage team:tmp ok byte 1 run team join $(team) $(player)
-$execute if data storage team:tmp {ok:0b} run return run tellraw @s {text:"✖ No existe el team \"$(team)\" (o el jugador ya estaba en él).",color:"red"}
-$tellraw @s [{text:"✔ ",color:"green"},{text:"$(player)",color:"white"},{text:" ahora está en el team ",color:"green"},{text:"[$(team)]",color:"gold"}]
+# Uso: /function team:cmd/add {player:"Steve",team:"Españita"}
+# Busca el ID interno por nombre visible. Si no está en el registro (teams
+# creados con versiones viejas), usa el nombre tal cual como ID.
+$data modify storage team:tmp args set value {player:"$(player)",name:"$(team)",id:"$(team)",color:"gold"}
+$data modify storage team:tmp args merge from storage team:data teams[{name:"$(team)"}]
+data modify storage team:tmp ran set value 0b
+function team:cmd/add_run with storage team:tmp args
+execute if data storage team:tmp {ran:0b} run function team:cmd/not_found with storage team:tmp args

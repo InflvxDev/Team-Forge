@@ -10,7 +10,7 @@
     {"label": {"text": "✖ Borrar team", "color": "red"}, "tooltip": "Eliminar un team existente", "action": {"type": "show_dialog", "dialog": "team:delete"}},
     {"label": {"text": "➕ Agregar jugador", "color": "aqua"}, "tooltip": "Meter a un jugador en un team", "action": {"type": "show_dialog", "dialog": "team:add"}},
     {"label": {"text": "➖ Quitar jugador", "color": "yellow"}, "tooltip": "Sacar a un jugador de su team", "action": {"type": "show_dialog", "dialog": "team:remove"}},
-    {"label": {"text": "☰ Ver teams", "color": "white"}, "tooltip": "Lista los teams en el chat", "action": {"type": "run_command", "command": "team list"}}
+    {"label": {"text": "☰ Ver teams", "color": "white"}, "tooltip": "Ver la lista de teams", "action": {"type": "run_command", "command": "function team:list"}}
   ],
   "exit_action": {"label": "Cerrar"}
 }

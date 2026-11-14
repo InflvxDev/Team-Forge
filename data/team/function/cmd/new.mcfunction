@@ -1,5 +1,8 @@
-# Uso: /function team:cmd/new {name:"Rojos",color:"red"}
-# Nombres válidos: solo letras A-Z, números y _ - . + (sin espacios, sin ñ ni tildes)
-data modify storage team:tmp ran set value 0b
-$function team:cmd/new_run {name:"$(name)",color:"$(color)"}
-$execute if data storage team:tmp {ran:0b} run tellraw @s [{text:"✖ Nombre inválido: ",color:"red"},{text:"$(name)",color:"white"},{text:"\nSolo se permiten letras sin tildes (A-Z), números y _ - . + (sin espacios ni ñ).",color:"gray"}]
+# Uso: /function team:cmd/new {name:"Españita",color:"red"}
+# El nombre visible puede tener ñ, tildes y espacios. Internamente el team se
+# llama tf1, tf2, ... y la relación nombre -> ID se guarda en storage team:data.
+$data modify storage team:tmp args set value {name:"$(name)",color:"$(color)"}
+execute if data storage team:tmp args{name:""} run return run tellraw @s {text:"✖ Escribe un nombre para el team.",color:"red"}
+$execute if data storage team:data teams[{name:"$(name)"}] run return run tellraw @s {text:"✖ Ya existe un team llamado \"$(name)\".",color:"red"}
+execute store result storage team:tmp args.id int 1 run scoreboard players add #next team.forge 1
+function team:cmd/new_run with storage team:tmp args
