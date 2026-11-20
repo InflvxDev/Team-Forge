@@ -5,23 +5,13 @@
     "color": "green",
     "bold": true
   },
-  "body": [
-    {
-      "type": "minecraft:plain_message",
-      "contents": {
-        "text": "El nombre se mostrará entre corchetes: [Nombre]. Puedes usar ñ, tildes y espacios (pero no comillas).",
-        "color": "gray"
-      }
-    },
-    {
-      "type": "minecraft:plain_message",
-      "contents": {
-        "text": "Como el nombre se escribe a mano, Minecraft pide confirmar el comando al crear.",
-        "color": "dark_gray",
-        "italic": true
-      }
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": {
+      "text": "El nombre se mostrará entre corchetes: [Nombre]. Puedes usar ñ, tildes y espacios (pero no comillas).",
+      "color": "gray"
     }
-  ],
+  },
   "pause": false,
   "inputs": [
     {
