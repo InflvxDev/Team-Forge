@@ -1,1 +1,2 @@
-dialog show @s team:delete
+function team:ui/grant
+function team:ui/pick_delete

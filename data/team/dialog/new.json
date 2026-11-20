@@ -1,35 +1,173 @@
 {
   "type": "minecraft:confirmation",
-  "title": {"text": "Nuevo team", "color": "green", "bold": true},
-  "body": {"type": "minecraft:plain_message", "contents": {"text": "El nombre se mostrará entre corchetes: [Nombre]. Puedes usar ñ, tildes y espacios (pero no comillas).", "color": "gray"}},
+  "title": {
+    "text": "Nuevo team",
+    "color": "green",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "text": "El nombre se mostrará entre corchetes: [Nombre]. Puedes usar ñ, tildes y espacios (pero no comillas).",
+        "color": "gray"
+      }
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "text": "Como el nombre se escribe a mano, Minecraft pide confirmar el comando al crear.",
+        "color": "dark_gray",
+        "italic": true
+      }
+    }
+  ],
   "pause": false,
   "inputs": [
-    {"type": "minecraft:text", "key": "name", "label": "Nombre del team", "max_length": 16, "width": 220},
+    {
+      "type": "minecraft:text",
+      "key": "name",
+      "label": "Nombre del team",
+      "max_length": 16,
+      "width": 220
+    },
     {
       "type": "minecraft:single_option",
       "key": "color",
       "label": "Color",
       "width": 220,
       "options": [
-        {"id": "red", "display": {"text": "Rojo", "color": "red"}, "initial": true},
-        {"id": "dark_red", "display": {"text": "Rojo oscuro", "color": "dark_red"}},
-        {"id": "gold", "display": {"text": "Dorado", "color": "gold"}},
-        {"id": "yellow", "display": {"text": "Amarillo", "color": "yellow"}},
-        {"id": "green", "display": {"text": "Verde", "color": "green"}},
-        {"id": "dark_green", "display": {"text": "Verde oscuro", "color": "dark_green"}},
-        {"id": "aqua", "display": {"text": "Celeste", "color": "aqua"}},
-        {"id": "dark_aqua", "display": {"text": "Turquesa", "color": "dark_aqua"}},
-        {"id": "blue", "display": {"text": "Azul", "color": "blue"}},
-        {"id": "dark_blue", "display": {"text": "Azul oscuro", "color": "dark_blue"}},
-        {"id": "light_purple", "display": {"text": "Rosa", "color": "light_purple"}},
-        {"id": "dark_purple", "display": {"text": "Morado", "color": "dark_purple"}},
-        {"id": "white", "display": {"text": "Blanco", "color": "white"}},
-        {"id": "gray", "display": {"text": "Gris", "color": "gray"}},
-        {"id": "dark_gray", "display": {"text": "Gris oscuro", "color": "dark_gray"}},
-        {"id": "black", "display": {"text": "Negro", "color": "black"}}
+        {
+          "id": "red",
+          "display": {
+            "text": "Rojo",
+            "color": "red"
+          },
+          "initial": true
+        },
+        {
+          "id": "dark_red",
+          "display": {
+            "text": "Rojo oscuro",
+            "color": "dark_red"
+          }
+        },
+        {
+          "id": "gold",
+          "display": {
+            "text": "Dorado",
+            "color": "gold"
+          }
+        },
+        {
+          "id": "yellow",
+          "display": {
+            "text": "Amarillo",
+            "color": "yellow"
+          }
+        },
+        {
+          "id": "green",
+          "display": {
+            "text": "Verde",
+            "color": "green"
+          }
+        },
+        {
+          "id": "dark_green",
+          "display": {
+            "text": "Verde oscuro",
+            "color": "dark_green"
+          }
+        },
+        {
+          "id": "aqua",
+          "display": {
+            "text": "Celeste",
+            "color": "aqua"
+          }
+        },
+        {
+          "id": "dark_aqua",
+          "display": {
+            "text": "Turquesa",
+            "color": "dark_aqua"
+          }
+        },
+        {
+          "id": "blue",
+          "display": {
+            "text": "Azul",
+            "color": "blue"
+          }
+        },
+        {
+          "id": "dark_blue",
+          "display": {
+            "text": "Azul oscuro",
+            "color": "dark_blue"
+          }
+        },
+        {
+          "id": "light_purple",
+          "display": {
+            "text": "Rosa",
+            "color": "light_purple"
+          }
+        },
+        {
+          "id": "dark_purple",
+          "display": {
+            "text": "Morado",
+            "color": "dark_purple"
+          }
+        },
+        {
+          "id": "white",
+          "display": {
+            "text": "Blanco",
+            "color": "white"
+          }
+        },
+        {
+          "id": "gray",
+          "display": {
+            "text": "Gris",
+            "color": "gray"
+          }
+        },
+        {
+          "id": "dark_gray",
+          "display": {
+            "text": "Gris oscuro",
+            "color": "dark_gray"
+          }
+        },
+        {
+          "id": "black",
+          "display": {
+            "text": "Negro",
+            "color": "black"
+          }
+        }
       ]
     }
   ],
-  "yes": {"label": {"text": "Crear", "color": "green"}, "action": {"type": "dynamic/run_command", "template": "function team:cmd/new {name:\"$(name)\",color:\"$(color)\"}"}},
-  "no": {"label": "Volver", "action": {"type": "show_dialog", "dialog": "team:menu"}}
+  "yes": {
+    "label": {
+      "text": "Crear",
+      "color": "green"
+    },
+    "action": {
+      "type": "dynamic/run_command",
+      "template": "function team:ui/new {name:\"$(name)\",color:\"$(color)\"}"
+    }
+  },
+  "no": {
+    "label": "Volver",
+    "action": {
+      "type": "run_command",
+      "command": "trigger tf.act set 1"
+    }
+  }
 }

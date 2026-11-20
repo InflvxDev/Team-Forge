@@ -1,1 +1,2 @@
-dialog show @s team:add
+function team:ui/grant
+function team:ui/pick_add
